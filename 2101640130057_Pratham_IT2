@@ -88,20 +88,6 @@ void removeatindx(node **start,int pos)
 	free(ptr);
 }
 
-void reverselist(node **start){
-	node *pnode,*cnode,*nnode;
-	pnode=NULL;
-	cnode=*start;
-	nnode=cnode->next;
-	cnode->next=NULL;
-	while(pnode!=NULL){
-		pnode=cnode;
-		cnode=nnode;
-		nnode=cnode->next;
-		cnode->next-pnode;
-	}
-	*start=cnode;
-}
 void printMiddle(node *start)
 {
     node *slow_ptr = start;
@@ -131,9 +117,8 @@ int main(){
 		printf("\n 3. Delete at Beg\n");
 		printf("\n 4. Delete at End\n");
 		printf("\n 5. Display in Order\n");
-		printf("\n 6. Remove at specific index\n");
-		printf("\n 7. Find middle Node\n");
-		printf("\n 8. Exit");
+		printf("\n 6. Find middle Node\n");
+		printf("\n 7. Exit");
 		printf("\n Enter Your Choice:");
 		scanf("%d", &choice);
 		switch(choice)
@@ -162,12 +147,8 @@ int main(){
 				display(head);
 				break;
 			
+			
 			case 6:
-				printf("Enter the position\n");
-				scanf("%d",&pos);
-				removeatindx(&head,pos);
-				break;
-			case 7:
 				printMiddle(head);
 				break;
 			default:
